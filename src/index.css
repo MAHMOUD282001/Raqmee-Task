@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .container {
+    @apply px-5 mx-auto;
+  }
+}
+
+body {
+  font-family: "Lexend Deca", sans-serif;
+}
+
+/* Modal Scrollbar */
+
+.modal::-webkit-scrollbar {
+  width: 4px;
+}
+.modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.modal::-webkit-scrollbar-thumb {
+  background: #D9F99D;
+  border-radius: 4px;
+}
+
+/* Style Pagination */
+.pagination-nums ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+.pagination-nums ul li {
+  user-select: none;
+  font-size: 14px;
+}
+
+.pagination-nums ul li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination-nums ul li:not(.previous, .next) {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-nums ul .previous {
+  position: absolute;
+  left: 0;
+  font-size: 14px;
+}
+
+.pagination-nums ul .next {
+  position: absolute;
+  right: 0;
+}
+
+.pagination-nums ul .selected {
+  border: 1.5px solid #d9f99d;
+}
+
+@media (max-width: 768px) {
+  .pagination-nums ul .previous {
+    top: 50px;
+  }
+
+  .pagination-nums ul .next {
+    top: 50px;
+  }
+}
