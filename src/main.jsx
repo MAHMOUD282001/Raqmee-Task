@@ -7,10 +7,10 @@ import { FilterationProvider } from "./context/FilterationContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <FilterationProvider>
-      <ModalProvider>
+    <ModalProvider>
+      <FilterationProvider>
         <App />
-      </ModalProvider>
-    </FilterationProvider>
+      </FilterationProvider>
+    </ModalProvider>
   </StrictMode>
 );
