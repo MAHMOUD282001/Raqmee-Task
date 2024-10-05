@@ -6,27 +6,30 @@ function CommonInput({
   placeholder,
   id,
   value,
-  onChange,
+  error,
   style,
   fileRef,
   accept,
+  isPrice,
+  onChange,
 }) {
   return (
-    <input
-      type={type}
-      ref={fileRef}
-      name={name}
-      id={id}
-      accept={accept}
-      placeholder={placeholder}
-      value={name !== "img" ? value : ""}
-      onChange={
-        name === "img"
-          ? (e) => onChange(e.target.name, e.target.files[0])
-          : (e) => onChange(e.target.name, e.target.value)
-      }
-      className={`border border-solid border-[#E5E5E5] rounded-[4px] px-[13px] py-[11px] outline-none text-[#737373] text-[14px] ${style}`}
-    />
+    <>
+      <div className={isPrice ? "px-[13px] py-[11px] h-[42px] flex" : ""}>
+        <input
+          type={type}
+          ref={fileRef}
+          name={name}
+          id={id}
+          accept={accept}
+          placeholder={placeholder}
+          {...value}
+          {...(onChange ? { onChange: (e) => onChange(e) } : null)}
+          className={`outline-none text-[#737373] text-[14px] ${style}`}
+        />
+      </div>
+      <p className="text-[12px] text-[#FF0000] mt-1">{error}</p>
+    </>
   );
 }
 

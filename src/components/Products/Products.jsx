@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import ProductCard from "./ProductCard";
 import { FilterationContext } from "../../context/FilterationContext";
 import Pagination from "../Pagination/Pagination";
-import img from "../../assets/b1d8bef0f98c2c1ca65646437d4ef615.png";
+import noProducts from "../../assets/no products.svg";
 
 function Products() {
   let [currentItems, setCurrentItems] = useState([]);
@@ -13,21 +13,33 @@ function Products() {
     setCurrentItems(items);
   };
 
+  console.log(filteredProducts);
+
   return (
     <>
-      <div className="mt-[40px] mb-[50px] grid 2xl:grid-cols-4 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
-        {currentItems.map((product) => (
-          <ProductCard product={product} key={product.id} />
-        ))}
-      </div>
+      {filteredProducts.length === 0 ? (
+        <div className="flex items-center justify-center flex-col mt-32">
+          <img src={noProducts} className="w-[300px]" alt="No Products" />
 
-      <div className="pagination-nums">
-        <Pagination
-          items={filteredProducts}
-          itemsPerPage={4}
-          getCurrentItems={getCurrentItems}
-        />
-      </div>
+          <p className="text-[20px] font-[400] mt-3">There are No Products</p>
+        </div>
+      ) : (
+        <>
+          <div className="mt-[40px] mb-[50px] grid 2xl:grid-cols-4 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-[30px]">
+            {currentItems.map((product) => (
+              <ProductCard product={product} key={product.id} />
+            ))}
+          </div>
+
+          <div className="pagination-nums">
+            <Pagination
+              items={filteredProducts}
+              itemsPerPage={4}
+              getCurrentItems={getCurrentItems}
+            />
+          </div>
+        </>
+      )}
     </>
   );
 }

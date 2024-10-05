@@ -7,7 +7,7 @@ function ProductCard({ product }) {
     <div className="max-w-[326px] mx-auto sm:mx-0">
       <div className="w-full h-[326px]">
         <img
-          src={product.img}
+          src={product.image}
           alt="Product Img"
           className="w-full h-full object-cover rounded-[4px]"
         />
