@@ -117,12 +117,31 @@ function SellProductModalLogic() {
 
     data.image = imagePreview;
 
-    const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
-    storedProducts.push({ id: storedProducts.length + 1, ...data });
-    localStorage.setItem("products", JSON.stringify(storedProducts));
-    closeModal();
-    document.body.style.overflow = "auto";
-    toast.success("Product added successfully");
+    try {
+      // Retrieve and update products in localStorage
+      const storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+      storedProducts.push({ id: storedProducts.length + 1, ...data });
+
+      // Try to store updated products in localStorage
+      localStorage.setItem("products", JSON.stringify(storedProducts));
+
+      // If successful, close modal and reset body style
+      closeModal();
+      document.body.style.overflow = "auto";
+      toast.success("Product added successfully");
+    } catch (error) {
+      // Handle QuotaExceededError (or any other error)
+      if (error.name === "QuotaExceededError") {
+        setError("storage", {
+          type: "manual",
+          message: "Storage limit exceeded. Please clear some data.",
+        });
+        toast.error("Unable to add product. Storage limit exceeded.");
+      } else {
+        // Handle other potential errors
+        toast.error("An unexpected error occurred.");
+      }
+    }
   };
 
   // Remove Scroll

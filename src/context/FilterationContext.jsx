@@ -15,7 +15,7 @@ export const FilterationProvider = ({ children }) => {
   let [isCategoriesDropDownOpen, setIsCategoriesDropDownOpen] = useState(false);
   const { isModalOpen, openModal, closeModal } = useContext(ModalContext);
 
-  // Handle Dropdown
+  // Sorting Dropdown
   let sortingDropdownValues = [
     "A - Z",
     "Z - A",
@@ -23,14 +23,16 @@ export const FilterationProvider = ({ children }) => {
     "Price: High to Low",
   ];
 
-  // Dropdown
+  // Categories Dropdown
   let categoriesDropdownValues = [
+    "All",
     "Electronics",
     "Clothing",
     "Mobile Phones",
     "Home appliances",
   ];
-
+  
+  // Handle All Dropdowns Change
   let handleDropdownChange = (type, value) => {
     if (type === "sorting") {
       setSortingDropdownValue(value);
@@ -40,7 +42,8 @@ export const FilterationProvider = ({ children }) => {
       setIsCategoriesDropDownOpen(false);
     }
   };
-
+  
+  // Handle All Dropdowns State
   let handleDropdownState = (type) => {
     if (type === "sorting") {
       setIsSortingDropDownOpen(!isSortingDropDownOpen);
