@@ -4,7 +4,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import PaginationLogic from "./PaginationLogic";
 
 function Pagination({ itemsPerPage, items, getCurrentItems }) {
-  const [currentItems, pageCount, handlePageClick] = PaginationLogic(
+  const [pageCount, handlePageClick] = PaginationLogic(
     itemsPerPage,
     items,
     getCurrentItems

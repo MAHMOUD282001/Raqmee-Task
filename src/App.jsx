@@ -3,7 +3,7 @@ import FilterProductsComponent from "./components/Filteration/FilterProductsComp
 import Products from "./components/Products/Products";
 function App() {
   return (
-    <section className="my-[85px]">
+    <section className="my-[75px]">
       <div className="container">
         <FilterProductsComponent />
         <Products />

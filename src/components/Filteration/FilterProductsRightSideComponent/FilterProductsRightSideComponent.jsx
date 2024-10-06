@@ -11,30 +11,43 @@ function FilterProductsRightSideComponent() {
   const { isModalOpen, openModal, closeModal } = useContext(ModalContext);
 
   const {
-    dropdownValue,
-    isDropDownOpen,
-    setIsDropDownOpen,
-    dropdownValues,
-    handleDropdown,
+    isSortingDropDownOpen,
+    isCategoriesDropDownOpen,
+    sortingDropdownValue,
+    categoriesDropdownValue,
+    sortingDropdownValues,
+    categoriesDropdownValues,
+    handleDropdownChange,
+    handleDropdownState,
   } = useContext(FilterationContext);
 
   return (
-    <div className="right-side flex items-center gap-[20px] flex-wrap w-full sm:w-auto">
+    <div className="right-side flex items-center gap-[15px] flex-wrap w-full md:w-auto">
       <p className="text-[14px] text-[#171717]">Sort by</p>
 
       <CommonDropdown
-        onChange={handleDropdown}
-        dropdownValues={dropdownValues}
-        dropdownValue={dropdownValue}
-        isDropDownOpen={isDropDownOpen}
-        setIsDropDownOpen={setIsDropDownOpen}
+        onChange={handleDropdownChange}
+        dropdownValues={sortingDropdownValues}
+        dropdownValue={sortingDropdownValue}
+        isDropDownOpen={isSortingDropDownOpen}
+        handleDropdown={handleDropdownState}
         isFilter={true}
-        style={"w-full sm:w-[202px]"}
+        name={"sorting"}
+      />
+      
+      <CommonDropdown
+        onChange={handleDropdownChange}
+        dropdownValues={categoriesDropdownValues}
+        dropdownValue={categoriesDropdownValue}
+        isDropDownOpen={isCategoriesDropDownOpen}
+        handleDropdown={handleDropdownState}
+        isFilter={true}
+        name={"categories"}
       />
 
       <CommonBtn
         style={
-          "bg-[#D9F99D] font-[300] w-full sm:w-auto flex items-center justify-center gap-[10px]"
+          "bg-[#D9F99D] font-[300] w-full md:w-auto flex items-center justify-center gap-[10px] h-[44px]"
         }
         handleOnClick={openModal}
       >

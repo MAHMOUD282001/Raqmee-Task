@@ -17,7 +17,7 @@ function PaginationLogic(itemsPerPage, items, getCurrentItems) {
     getCurrentItems(currentItems);
   }, [items, itemOffset, itemsPerPage]);
 
-  return [currentItems, pageCount, handlePageClick];
+  return [pageCount, handlePageClick];
 }
 
 export default PaginationLogic;

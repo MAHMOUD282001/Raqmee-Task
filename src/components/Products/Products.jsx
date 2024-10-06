@@ -12,9 +12,7 @@ function Products() {
   const getCurrentItems = (items) => {
     setCurrentItems(items);
   };
-
-  console.log(filteredProducts);
-
+  
   return (
     <>
       {filteredProducts.length === 0 ? (

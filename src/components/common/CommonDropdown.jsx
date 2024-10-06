@@ -14,17 +14,19 @@ function CommonDropdown({
   return (
     <div
       className={`dropdown text-[14px] relative ${
-        isFilter ? "w-full sm:w-[202px]" : "w-full"
+        isFilter ? "w-full sm:flex-1 md:w-[202px] h-[44px]" : "w-full"
       }`}
     >
       <button
         type="button"
         className={`${
-          isFilter ? "h-[44px] w-full sm:w-[202px]" : "h-[42px] w-full"
+          isFilter ? "h-[44px] w-full md:w-[202px]" : "h-[42px] w-full"
         } border border-solid border-[#E5E5E5] rounded-[4px] text-[#737373] px-[13px] py-[11px] flex items-center justify-between`}
-        onClick={handleDropdown}
+        onClick={() =>
+          handleDropdown(name === "sorting" ? "sorting" : "categories")
+        }
       >
-        {dropdownValue}
+        {dropdownValue || "Select"}
         <IoIosArrowDown size={20} color="#171717" />
       </button>
 
@@ -37,10 +39,9 @@ function CommonDropdown({
           {dropdownValues.map((value, index) => {
             return (
               <div
-                data-name={name}
                 key={index}
-                onClick={
-                  isFilter ? () => onChange(value) : (e) => onChange(value)
+                onClick={() =>
+                  onChange(name === "sorting" ? "sorting" : "categories", value)
                 }
                 className="dropdown-value leading-[22px] cursor-pointer"
               >

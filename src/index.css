@@ -64,6 +64,10 @@ body {
   right: 0;
 }
 
+.pagination-nums ul .disabled {
+  color: #737373;
+}
+
 .pagination-nums ul .selected {
   border: 1.5px solid #d9f99d;
 }

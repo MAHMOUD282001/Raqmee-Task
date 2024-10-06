@@ -95,7 +95,7 @@ function SellProductModalLogic() {
 
   // Handle Dropdown Click
   const dropdownValue = watch("category", "");
-  const handleDropdownClick = (value) => {
+  const handleDropdownClick = (type, value) => {
     setValue("category", value);
     clearErrors("category");
     setIsDropDownOpen(false);

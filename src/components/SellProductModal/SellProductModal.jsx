@@ -38,13 +38,13 @@ function SellProductModal() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <p className="text-[14px] font-[300] mb-1">Upload Photos</p>
-            <div className="w-full h-[181px] border border-solid border-[#E5E5E5] rounded-[4px] flex items-center justify-center">
+            <div className="w-full h-[181px] border border-solid border-[#E5E5E5] rounded-[4px] flex items-center justify-center flex-col">
               {imagePreview ? (
                 <div className="cursor-pointer" onClick={handleButtonClick}>
                   <img
                     src={imagePreview}
                     alt="Preview"
-                    className="w-[200px] h-[160px] object-cover rounded-[4px]"
+                    className="w-[200px] h-[140px] object-cover rounded-[4px]"
                   />
                 </div>
               ) : (
@@ -126,8 +126,8 @@ function SellProductModal() {
             </div>
           </div>
 
-          <CommonBtn style={"bg-[#D9F99D] mt-[30px] w-full"} type={"submit"}>
-            Upload Modal
+          <CommonBtn style={"bg-[#D9F99D] mt-[50px] w-full"} type={"submit"}>
+            Upload Item
           </CommonBtn>
         </form>
       </div>
