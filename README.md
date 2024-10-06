@@ -49,7 +49,7 @@ After cloning the repository, install the necessary dependencies:
 npm install
 ```
 
-3. Start the development server
+3- Start the development server
 To start the development server and preview your app locally, run the following:
 
 ```bash
